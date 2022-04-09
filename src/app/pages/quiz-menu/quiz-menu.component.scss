@@ -1,0 +1,29 @@
+.quiz-menu-option {
+  width: 250px;
+  border: 1px solid darkgrey;
+  border-radius: 0.6rem;
+  padding: 2px 0px 2px 4px;
+  background-color: azure;
+}
+
+.btn-start {
+  width: 150px;
+  border-radius: 15px;
+  border-color: #d1c331a3;
+  box-shadow: 0 0 31px 0px #9938069c;
+  background-color: #d36e09e3;
+  color: whitesmoke;
+  font-size: x-large;
+  font-weight: 700;
+}
+
+.btn-start:hover {
+  color: whitesmoke;
+  background: #7aafffda;
+  border-color: #d1c331a3;
+}
+
+.card-quiz-menu {
+  margin-left: 18%;
+  width: 60%;
+}

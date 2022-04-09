@@ -1,0 +1,94 @@
+<div class="container">
+  <div
+    class="card {{
+      !isGameRunning || !isNamePicked ? 'card-quiz-menu' : 'card-quiz-board'
+    }}"
+  >
+    <div class="card-title">
+      <h1>Quiz Game</h1>
+    </div>
+    <hr />
+
+    <div class="row" *ngIf="!isNamePicked">
+      <div class="card-title">
+        <h4 style="text-align: center">Please Choose Player Name:</h4>
+      </div>
+      <div class="row mt-2 mb-1">
+        <div class="col" style="text-align: center">
+          <input
+            style="text-align: center"
+            [(ngModel)]="playerName"
+            class="quiz-menu-option"
+            id="player-name"
+            type="text"
+          />
+        </div>
+      </div>
+
+      <div class="row mt-5">
+        <div class="col">
+          <button
+            class="btn btn-start float-right"
+            [disabled]="!playerName"
+            (click)="onClickNext()"
+          >
+            NEXT
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="isNamePicked && isGameRunning">
+      <app-quiz-board
+        (onGameEnd)="gameEndListener($event)"
+        [gameConfig]="{ playerName: playerName, questions: questions }"
+      ></app-quiz-board>
+    </div>
+
+    <div *ngIf="isNamePicked && !isGameRunning">
+      <div class="card-title">
+        <h4 class="ps-2">Game Menu</h4>
+      </div>
+      <hr />
+      <div class="card-body">
+        <div class="row mt-4 mb-2" *ngFor="let item of config">
+          <div class="col-4">
+            <label>{{ item.label }}</label>
+          </div>
+          <div class="col-6">
+            <select class="quiz-menu-option" [(ngModel)]="item.selectedData">
+              <option
+                *ngFor="let obj of item.data; index as index"
+                [value]="obj.id"
+              >
+                {{ obj.text }}
+              </option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row mt-5">
+          <div class="col">
+            <button
+              class="btn btn-start float-left"
+              [disabled]="!playerName"
+              (click)="onClickBack()"
+            >
+              BACK
+            </button>
+          </div>
+
+          <div class="col">
+            <button
+              class="btn btn-start float-right"
+              [disabled]="!playerName"
+              (click)="onClickStart()"
+            >
+              START
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

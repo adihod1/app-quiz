@@ -1,0 +1,85 @@
+<div class="container">
+  <div class="card" style="border-radius: 2.5rem">
+    <div class="card-title">
+      <h1>Online Quiz Game</h1>
+    </div>
+    <hr />
+    <div class="card-body">
+      <div class="body">
+        <div>
+          <p>
+            Online quiz game is an interactive game, containing a series of
+            questions and riddles that should be answered in a certain amount of
+            time. The player’s goal is to answer all the questions as quickly
+            and accurately as possible.
+          </p>
+        </div>
+
+        <div>
+          <h5>Instructions</h5>
+          <p>
+            ● At each round, a new question will be presented<br />
+            ● Each question contains multiple possible answers, only one is
+            correct<br />
+            ● Each play has limited time to respond to each question<br />
+            ● There are two types of questions: True/False or Multiple Choice<br />
+            ● True/False Questions has a time limit of 15 seconds to answer<br />
+            ● Multiple Choice Questions has a time limit of 30 seconds to
+            answer<br />
+            ● No score will be granted if a question hand't been answered<br />
+            ● Each correct answer is scored<br />
+          </p>
+        </div>
+
+        <div>
+          <h5>Score Calucation</h5>
+          <h6>
+            The total score is calculated for each question by the following formula:
+          </h6>
+          <h6>
+            QUESTION_DIFFICULTY * (QUESTION_TOTAL_TIME - TIME_TOOK_TO_ANSWER)
+          </h6>
+          <p>
+            ● When QUESTION_DIFFICULTY is "Easy" the multiplier is 1<br />
+            ● When QUESTION_DIFFICULTY is "Medium" the multiplier is 5<br />
+            ● When QUESTION_DIFFICULTY is "Hard" the multiplier is 10<br />
+          </p>
+        </div>
+
+        <div>
+          <h5>Tips</h5>
+          <p>
+            ● Tips can only be used when playing a Multiple Choice game <br />
+            ● Each tip can only be used once per game, so be careful! <br />
+            ● 50/50 Elimination - 10 points <br />
+            ● Show the first letter of the answer - 20 points <br />
+            ● Show an image related to the answer - 15 points <br />
+          </p>
+        </div>
+
+        <div>
+          <h5>Leaderboard</h5>
+          <p>
+            ● A table for showing the 50 highest scores recorded on your browser
+          </p>
+        </div>
+      </div>
+
+      <div>
+        <h5>Notes</h5>
+        <p>
+          ● The questions are generated from the free API:
+          <a href="https://opentdb.com/">Open Trivia Database</a> <br />
+          ● The images are fetched with
+          <a href="https://developers.google.com/custom-search/v1/overview"
+            >Google API Custom Search</a
+          >
+          <br />
+          ● The images API has a rate limit of 100 queries a day <br />
+          ● Images that had been searched are cached within the storage of the
+          program <br />
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="card">
+    <div class="card-title">
+      <h1>Leaderboards Table</h1>
+    </div>
+    <hr />
+    <div class="card-body">
+      <table class="table">
+        <thead>
+          <tr>
+            <th *ngFor="let head of tableHeaders">
+              {{ head.name }}
+              <i
+                (click)="setSortBy(head)"
+                class="cursor-pointer {{
+                  sortDirection == 'asc' ? 'fa fa-angle-up' : 'fa fa-angle-down'
+                }} {{ sortBy == head ? 'font-weight-800 font-size-18' : '' }}"
+              ></i>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let leader of leaderboardItems">
+            <td>
+              <span *ngIf="leader.rank <= 3">
+                <i
+                  class="fa fa-trophy leaderboard-icon leaderboard-icon-{{
+                    leader.rank
+                  }}"
+                ></i>
+              </span>
+              {{ leader.rank }}
+            </td>
+            <td>{{ leader.name }}</td>
+            <td>{{ leader.score }}</td>
+            <td>{{ leader.numOfQuestiones }}</td>
+            <td>{{ normalizeDate(leader.date) }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

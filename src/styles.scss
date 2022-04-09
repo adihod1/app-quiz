@@ -1,0 +1,11 @@
+/* You can add global styles to this file, and also import other style files */
+@import "./app/styles/variables";
+@import "./app/styles/helpers";
+@import "./app/styles/colors.css";
+@import "./app/styles/overlay";
+@import "./app/styles/card";
+@import "./app/styles/confetti";
+@import "./app/styles/layout";
+@import "../node_modules/font-awesome/scss/font-awesome";
+@import "../node_modules/mdi/scss/materialdesignicons";
+@import "../node_modules/bootstrap/scss/bootstrap";

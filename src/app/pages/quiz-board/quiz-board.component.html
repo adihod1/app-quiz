@@ -1,0 +1,158 @@
+<div class="container" *ngIf="!isGameEnded">
+  <div class="row p">
+    <div class="col-3">
+      <div class="row">
+        <div class="col-4">
+          <label for="questionTimeLeft">{{ questionTimeLeft }}</label>
+        </div>
+        <div class="col-1">
+          <label for="questionIndex"
+            >{{ questionIndex }}/{{ questions.length }}</label
+          >
+        </div>
+      </div>
+    </div>
+    <div class="col-3">
+      <div class="row">
+        <label for="category" style="text-align-last: center">{{
+          question.category
+        }}</label>
+      </div>
+      <div class="row p-2">
+        <div *ngIf="question.imageLinks?.length" class="row">
+          <img
+            src="{{ question.imageLinks![0] }}"
+            style="height: 200px; width: auto; border-radius: 25%"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="col-3">
+      <div class="col" style="text-align-last: left">
+        <label
+          for="totalScore"
+          style="margin-left: 55%; text-align-last: center"
+        >
+          Total Score: {{ totalScore }}</label
+        >
+      </div>
+    </div>
+
+    <div class="col-3">
+      <button
+        class="exit-game"
+        (click)="endGame()"
+        style="margin-left: 75%"
+        ngbTooltip="Exit Game"
+        placement="top"
+        container="body"
+      >
+        <i class="fa fa-sign-out"></i>
+      </button>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-10">
+      <div class="row question p-4">
+        <div
+          class="col-1"
+          ngbTooltip="Difficulty: {{ capitalizeText(question.difficulty) }}"
+          placement="top"
+          container="body"
+        >
+          <i
+            class="fa fa-circle quiz-difficulty-{{ question.difficulty }}"
+            style="margin-top: 15px"
+          ></i>
+        </div>
+        <div class="col-11">
+          <label for="question">{{ question.question }}</label>
+        </div>
+      </div>
+      <div class="row p-3">
+        <div
+          class="col-6 p-2"
+          *ngFor="let ans of question.allAnswers; index as index"
+        >
+          <button
+            class="btn btn-answer btn-answer-{{ index }}"
+            (click)="onAnswerClick(ans)"
+            [disabled]="question.disabledAnswers?.includes(ans)"
+          >
+            {{ ans }}
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      *ngIf="question.type == 'multiple'"
+      class="col-2"
+      style="margin-top: -90px"
+    >
+      <div class="row">
+        <label for="tips" style="text-align-last: center; font-weight: 600"
+          >TIPS</label
+        >
+      </div>
+      <div class="row" *ngFor="let tip of gameTips">
+        <div class="col-4">
+          <div class="row p-1">
+            <button
+              class="btn-tip"
+              (click)="onTipClickSelect(tip)"
+              [disabled]="
+                tip.used || totalScore == 0 || tip.weight > totalScore
+              "
+            >
+              <i
+                class=" {{ tip.class }}"
+                ngbTooltip="{{ tip.name }}"
+                placement="top"
+                container="body"
+              ></i>
+            </button>
+          </div>
+          <img
+            [hidden]="!question.tipImage || tip.tip != 'show-image'"
+            *ngIf="!!question.imageLinks!.length"
+            src="{{ question.tipImage }}"
+            style="width: 200px; height: auto"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container" *ngIf="isGameEnded">
+  <div class="row">
+    <div class="col">
+      <h3>Game Ended</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <label for="totalScore">
+        Total Score: &nbsp;&nbsp;{{ totalScore }}
+      </label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="cols">
+      <label for="totalScore me-2"> Tips Used: </label>
+      <label class="me-3 ms-4" *ngFor="let tip of this.gameTips">
+        <span *ngIf="tip.used">
+          <i class=" {{ tip.class }}"></i>
+          {{ tip.name }}
+        </span>
+      </label>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <button class="btn-end" (click)="onStartOverClick()">Start Over</button>
+    </div>
+  </div>
+</div>

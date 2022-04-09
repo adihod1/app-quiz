@@ -1,0 +1,26 @@
+@for $i from 0 through 128 {
+  $px: $i + px;
+
+  .font-size-#{$i} {
+    font-size: $px !important;
+  }
+}
+
+@for $i from 0 through 10 {
+  $weight: 100 * $i;
+
+  .font-weight-#{$weight} {
+    font-weight: $weight !important;
+  }
+}
+
+.cursor-pointer {
+  cursor: pointer !important;
+}
+
+.float-left {
+  float: left !important;
+}
+.float-right {
+  float: right !important;
+}

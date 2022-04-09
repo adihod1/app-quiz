@@ -1,0 +1,21 @@
+<div style="height: 100vh">
+  <div style="width: 100%; height: 6.7%">
+    <app-navbar></app-navbar>
+  </div>
+  <div class="row ms-0" style="width: 100%; height: 93.3%">
+    <div class="col-auto pe-0 ps-0">
+      <app-sidebar> </app-sidebar>
+    </div>
+    <div class="col p-2 pt-5 ps-0 pe-0" style="background-color: #d9a919da">
+      <div class="container" style="min-height: 85%; height: auto">
+        <span id="spinner-service"></span>
+        <div class="row">
+          <router-outlet style="display: none"></router-outlet>
+        </div>
+      </div>
+      <div style="margin-top: 50px">
+        <app-footer></app-footer>
+      </div>
+    </div>
+  </div>
+</div>

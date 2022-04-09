@@ -1,0 +1,80 @@
+.sidebar {
+  height: 100vh;
+  width: 0;
+  position: relative;
+  z-index: 998;
+  top: 20;
+  left: 0;
+  background: linear-gradient(172deg, #0e376280 22%, #2a86a5 75%);
+  overflow-x: hidden;
+  padding-top: 60px;
+  transition: 0.5s;
+  border-right: 1px dotted grey;
+  box-shadow: whitesmoke 0px 8px 10px 1px;
+}
+
+.sidebar-item-icon {
+  margin-left: 12px;
+  font-size: 24px;
+  color: white;
+}
+
+.sidebar a {
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidebar a:hover {
+  color: #f1f1f1;
+}
+
+.sidebar .closebtn {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 20px;
+}
+
+.openbtn {
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #111;
+  color: transparent;
+  padding: 10px 15px;
+  border: none;
+}
+
+.openbtn:hover {
+  background-color: #444;
+}
+
+#main {
+  transition: margin-left 0.5s;
+  padding: 20px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidebar {
+    padding-top: 15px;
+  }
+  .sidebar a {
+    font-size: 18px;
+  }
+}
+
+.sidebar-button {
+  color: white;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 24px;
+  transition: transform 0.5s ease;
+  cursor: pointer;
+}
+
+.sidebar-button-closed {
+  transform: rotate(180deg);
+}
